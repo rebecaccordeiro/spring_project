@@ -52,6 +52,20 @@ public class NgoController {
         return service.save(ngo);
     }
 
+    @Operation(summary = "Editar ONG | role: [ADMIN]",
+            tags = "Ngo", description = "Possibilita "
+            + "editar uma ONG a "
+            + "partir dos dados de entrada")
+    @ApiResponses({
+            @ApiResponse(responseCode = "200", description = 
+                    "ONG retornada com sucesso"),
+            @ApiResponse(responseCode = "400", description =
+                    "Limite de caracteres excedido!"),
+            @ApiResponse(responseCode = "409", description =
+                    "O Login informado já existe!"),
+            @ApiResponse(responseCode = "500", description =
+                    "Erro interno no servidor.")
+    })
     @PutMapping
     public NgoLowDTO update(@RequestBody NgoDTO ngo) {
         return service.save(ngo);
